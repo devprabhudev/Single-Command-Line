@@ -1,5 +1,6 @@
 ### Single Command Line 
-# In computer science Computer Science refers to a sequence of commands grouped together using symbols such as &, &&, and | |, allowing the command interpreter to process them either sequentially or based on certain conditions.
+In computer science One liners or single line command refers to a sequence of commands grouped together using symbols such as &, &&, and | |, allowing the command interpreter to process them either sequentially or based on certain conditions.
+The service desk or support agents can copy paste a single command that performs multiple actions.This approach reduces human error, speeds up resolution times and even allows less experienced members to run sophiscated fixes or configurations.
 ```
 php -v >/dev/null 2>&1 && echo -e "\e[32mPhp version: $( php -v | head -n 1 | awk '{print $2}') is already installed \e[0m" || echo -e "\e[31mPhp is not installed \e[0m"
 ```
