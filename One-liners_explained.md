@@ -4,16 +4,17 @@ The service desk or support agents can copy paste a single command that performs
 ```
 php -v >/dev/null 2>&1 && echo -e "\e[32mPhp version: $( php -v | head -n 1 | awk '{print $2}') is already installed \e[0m" || echo -e "\e[31mPhp is not installed \e[0m"
 ```
-#The above command checks if php is already installed, it suppresses the output by >/dev/null. > is used to write the output to a file or some location.
-#head -n 1 gets the first line of the out put. Echo -e is used to get color formats. 32m is green and 31m is black.
+#The above one line checks if php is installed, if yes it prints the version installed in green output color and if not it gives an output in red indicating an error
+
 ```
 php_enabled=$(sudo yum module list php | awk '$3 ~ /\[e\]/ {print $2}' | grep -E '^[0-9]+\.[0-9]+' | sort -u) ; [[ "$php_enabled" == "8.2" ]] && echo -e "\e[32mTarget php version matches the enabled php version in the server (${php_enabled})\e[0m" ||  echo -e "\e[31mTarget php version mismatches the enabled version (${php_enabled})\e[0m"	
 ```
-#The command on line 9 checks, if php is available as modular stream.It finds the enabled modular stream of php. 8.2 is target php version. 
+#The command checks if php is available as modular streams, in oracle linux 8 and above php is available in modular streams, it checks and compares it with the required target version which is 8.2 in this example.
 
+```
 echo -n Q | openssl s_client -servername example.production.com -connect example.production.com:443 | openssl x509 -noout -dates	
-
-#The command on line 13 checks the ssl cert validity. 
+```
+The command checks the ssl validity on 443
 
 systemctl is-active -q httpd && echo -e "\e[32mApache is active\e[0m"; [[ -f "/etc/httpd/conf.d/example.conf" ]] && echo -e "\e[32mApache configuration eample.conf found\e[0m" || echo -e "\e[31mApache configuration example.conf missing,copy it from backup\e[0m"	file name:amecms.conf,contains document root,rewrite rules,ssl configuration. 
 
